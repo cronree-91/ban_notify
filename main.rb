@@ -44,6 +44,10 @@ bot.ready() do |event|
   puts "https://discord.com/api/oauth2/authorize?client_id=757567365171904583&permissions=2048&scope=bot"
 end
 
+bot.mention() do |event|
+  event.channel.send("お前、BANされてやんのぉwwwざまみぃ⤴︎ ⤴︎ ")
+end
+
 bot.run(true)
 loop do
   doc = Nokogiri::HTML(open('https://www.mcbans.com/server/61605/dekitateserver.com/'))
