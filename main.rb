@@ -45,7 +45,9 @@ bot.ready() do |event|
 end
 
 bot.mention() do |event|
-  event.channel.send("お前、BANされてやんのぉwwwざまみぃ⤴︎ ⤴︎ ")
+  first = bans.keys[0]
+  first = [first,bans[first].split(" ")].flatten
+  event.channel.send("#{first[1]}、#{first[2]}にBANされてやんのぉwwwざまみぃ⤴︎ ⤴︎ \nhttps://mcbans.com/ban/#{first[0]}")
 end
 
 bot.run(true)
