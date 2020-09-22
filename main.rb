@@ -44,6 +44,15 @@ bot.ready() do |event|
   puts "https://discord.com/api/oauth2/authorize?client_id=757567365171904583&permissions=2048&scope=bot"
 end
 
+bot.server_create() do |event|
+  begin
+    event.server.system_channel.send("このBOTは、BANされて欲しかった人がBANされたとき真っ先にバカにできるbotです。\ndekitateserver.comのBANを監視しています。\nメンションをすることで、最新のBAN者を馬鹿にすることができます。\n招待リンクはこちら!!\nhttps://discord.com/api/oauth2/authorize?client_id=757567365171904583&permissions=2048&scope=bot")
+  rescue
+    event.server.owner.send("権限がないため、送信ができませんでした。")
+    event.owner.send("このBOTは、BANされて欲しかった人がBANされたとき真っ先にバカにできるbotです。\ndekitateserver.comのBANを監視しています。\nメンションをすることで、最新のBAN者を馬鹿にすることができます。\n招待リンクはこちら!!\nhttps://discord.com/api/oauth2/authorize?client_id=757567365171904583&permissions=2048&scope=bot")
+  end
+end
+
 bot.mention() do |event|
   first = bans.keys[0]
   first = [first,bans[first].split(" ")].flatten
